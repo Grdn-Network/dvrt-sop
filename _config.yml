@@ -1,0 +1,21 @@
+# DVRT SOP Reference - GitHub Pages (Jekyll) config
+title: DVRT SOP Reference
+description: GRDN OPS - DVMP Operations Standard Operating Procedure
+sop_version: "0.89.J.311"
+sop_updated: "27 JUL 2026"
+
+# The SOP lives as Markdown files in _sop/. Each file is one Part.
+collections:
+  sop:
+    output: false
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+# Keep build output and notes out of the site
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

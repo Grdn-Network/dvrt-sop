@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ site.title }}</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+</head>
+<body>
+{% assign parts = site.sop | sort: 'part' %}
+<div class="manual">
+  <aside class="rail">
+    <div class="brand">
+      <div class="brand-mark">DVRT</div>
+      <div class="brand-sub">Derail Valley Railroad &amp; Transit</div>
+      <div class="brand-org">GRDN OPS &middot; DVMP OPERATIONS SOP</div>
+    </div>
+    <div class="search-wrap">
+      <input id="q" class="search" type="text" placeholder="SEARCH SOP" autocomplete="off" spellcheck="false">
+    </div>
+    <nav id="nav" class="nav">
+      {% for p in parts %}
+      <a class="nav-item" href="#part-{{ p.part }}" data-part="{{ p.part }}">
+        <span class="ni-num">{{ p.num }}</span>
+        <span class="ni-title">{{ p.title }}</span>
+        <span class="ni-meta">{{ p.tag }}{% if p.meta %} &middot; {{ p.meta }}{% endif %}</span>
+      </a>
+      {% endfor %}
+    </nav>
+    <div class="rail-foot">
+      <div>VER {{ site.sop_version }}</div>
+      <div>DISTRIBUTION: INTERNAL</div>
+      <div>OPERATIO VIVIT</div>
+    </div>
+  </aside>
+
+  <main class="content" id="content">
+    {% for p in parts %}
+    <section class="part" id="part-{{ p.part }}" data-part="{{ p.part }}">
+      <header class="part-head">
+        <div class="ph-left">
+          <div class="ph-meta">PART {{ p.num }} &middot; {{ p.tag }}</div>
+          <h1 class="ph-title">{{ p.title }}</h1>
+          {% if p.meta %}<div class="ph-sub">{{ p.meta }}</div>{% endif %}
+        </div>
+        <div class="ph-right">
+          <div>LAST UPDATED</div>
+          <div class="ph-date">{{ site.sop_updated }}</div>
+        </div>
+      </header>
+      <div class="part-body">
+        {{ p.content }}
+      </div>
+    </section>
+    {% endfor %}
+    <div id="noresults" class="noresults" hidden>No matching sections.</div>
+  </main>
+</div>
+<script src="{{ '/assets/manual.js' | relative_url }}"></script>
+</body>
+</html>
