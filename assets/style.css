@@ -16,6 +16,7 @@
 }
 
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
@@ -194,6 +195,7 @@ body {
 }
 .part-body a { color: var(--rust); }
 .part-body a:hover { color: var(--rust-dark); }
+.part-body mark.hit { background: #e9c65a; color: var(--ink); padding: 0 1px; }
 .part-body strong { color: var(--ink); }
 .part-body code {
   font-family: 'IBM Plex Mono', monospace; font-size: 0.9em;
