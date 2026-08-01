@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ site.title }}</title>
+<link rel="icon" type="image/png" href="{{ '/assets/favicon.png' | relative_url }}?v={{ site.github.build_revision | default: site.sop_version }}">
+<link rel="apple-touch-icon" href="{{ '/assets/apple-touch-icon.png' | relative_url }}?v={{ site.github.build_revision | default: site.sop_version }}">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}?v={{ site.github.build_revision | default: site.sop_version }}">
